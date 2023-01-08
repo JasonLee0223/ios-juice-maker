@@ -6,13 +6,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JuiceViewController: UIViewController {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        juiceManagerSingleTest()
-        juiceManagerMixTest()
+//        juiceManagerSingleTest()
+//        juiceManagerMixTest()
     }
     
     func juiceManagerSingleTest() {

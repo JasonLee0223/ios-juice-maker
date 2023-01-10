@@ -9,7 +9,7 @@ import Foundation
 // 쥬스 메이커 타입
 struct JuiceMaker: Makeable {
     let fruitStore = FruitStore.shared
-    let calculator: Computable
+    private let calculator: Computable
     
     init(calculator: Computable) {
         self.calculator = calculator
@@ -46,7 +46,7 @@ struct JuiceMaker: Makeable {
         }
     }
     
-    func requestTo(single juice: FruitSingleJuice) {
+    private func requestTo(single juice: FruitSingleJuice) {
         juice.recipe.forEach { (key: FruitList, value: Int) in
             guard let storeOfFruitCount = fruitStore.storeValue(fruit: key) else {
                 return
@@ -66,7 +66,7 @@ struct JuiceMaker: Makeable {
         }
     }
     
-    func requestTo(mix juice: FruitMixJuice) {
+    private func requestTo(mix juice: FruitMixJuice) {
         var allOfMixJuiceCount = ([Int](), [Int]())
         var firstFruitStoreDetermine = false
         var secondFruitStoreDetermine = false
@@ -109,13 +109,13 @@ struct JuiceMaker: Makeable {
                 }
             }
         }
-    } 
+    }
     
-    func currentNumber(fruit juice: FruitMixJuice) -> ([Int], [Int]) {
+    private func currentNumber(fruit juice: FruitMixJuice) -> ([Int], [Int]) {
         var storeItemsCount = [Int]()
         var consumeItemsCount = [Int]()
         
-        for _ in 0..<juice.recipe.count {
+        for _ in 0..<juice.recipe.count {       // 5번 돌라고 Enum - Case마다
             juice.recipe.forEach { (key: FruitList, value: Int) in
                 var storeItem: Int?
                 var consumeItem: Int?

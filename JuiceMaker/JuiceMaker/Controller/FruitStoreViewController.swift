@@ -14,24 +14,26 @@ class FruitStoreViewController: UIViewController {
     @IBOutlet var stepperBundle: [UIStepper]!
     
     @IBAction func fruitCounting(_ sender: UIStepper) {
-        switch fruitEmojiBundle.text {
-        case "🍓":
-            fruitStoreCountBundle[0].text = Int(sender.value).description
-            break
-        case "🍌":
-            fruitStoreCountBundle[1].text = Int(sender.value).description
-            break
-        case "🍍":
-            fruitStoreCountBundle[2].text = Int(sender.value).description
-            break
-        case "🥝":
-            fruitStoreCountBundle[3].text = Int(sender.value).description
-            break
-        case "🥭":
-            fruitStoreCountBundle[4].text = Int(sender.value).description
-            break
-        default:
-            print("어렵네...")
+        fruitEmojiBundle.forEach { element in
+            switch element.text {
+            case "🍓":
+                fruitStoreCountBundle[0].text = Int(sender.value).description
+                break
+            case "🍌":
+                fruitStoreCountBundle[1].text = Int(sender.value).description
+                break
+            case "🍍":
+                fruitStoreCountBundle[2].text = Int(sender.value).description
+                break
+            case "🥝":
+                fruitStoreCountBundle[3].text = Int(sender.value).description
+                break
+            case "🥭":
+                fruitStoreCountBundle[4].text = Int(sender.value).description
+                break
+            default:
+                print("어렵네...")
+            }
         }
     }
     

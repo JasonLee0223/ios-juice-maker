@@ -288,64 +288,66 @@
         <!--재고 추가-->
         <scene sceneID="fkG-vv-hpE">
             <objects>
-                <viewController storyboardIdentifier="FruitView" id="Yu1-lM-nqp" customClass="FruitViewController" customModule="JuiceMaker" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FruitView" id="Yu1-lM-nqp" customClass="FruitViewController" customModule="JuiceMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tKV-4l-Vtc">
                         <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-qg-4z1">
-                                <rect key="frame" x="111" y="117" width="622" height="156"/>
+                                <rect key="frame" x="111" y="114" width="622" height="162"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="baS-qk-yXt">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="baS-qk-yXt">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="162"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dCK-AJ-zGU">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="85.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="83.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0yV-kn-zaT">
-                                                <rect key="frame" x="0.0" y="91.666666666666657" width="94" height="26.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="94" height="26.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <accessibility key="accessibilityConfiguration" label="strawberry"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-f4-zrz">
-                                                <rect key="frame" x="0.0" y="124" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="130" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperAction:" destination="Yu1-lM-nqp" eventType="valueChanged" id="u9k-dh-kY0"/>
+                                                    <action selector="strawberryStepper:" destination="Yu1-lM-nqp" eventType="valueChanged" id="9cY-UJ-O9j"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="9qG-cX-EwG">
-                                        <rect key="frame" x="132" y="0.0" width="94" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9qG-cX-EwG">
+                                        <rect key="frame" x="132" y="0.0" width="94" height="162"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍌" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y33-ND-gz2">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="91.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="83.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gKu-86-RhI">
-                                                <rect key="frame" x="0.0" y="94.666666666666657" width="94" height="26.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="94" height="26.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <accessibility key="accessibilityConfiguration" label="banana"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="O5s-2N-3iP">
-                                                <rect key="frame" x="0.0" y="124" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="130" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperAction:" destination="Yu1-lM-nqp" eventType="valueChanged" id="H5l-Wr-NsA"/>
+                                                    <action selector="bananaStepper:" destination="Yu1-lM-nqp" eventType="valueChanged" id="5NE-SO-369"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oh4-lr-rw5">
-                                        <rect key="frame" x="264" y="0.0" width="94" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oh4-lr-rw5">
+                                        <rect key="frame" x="264" y="0.0" width="94" height="162"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍍" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rac-Ji-vZK">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="83.666666666666671"/>
@@ -354,22 +356,23 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MpT-VW-hCb">
-                                                <rect key="frame" x="0.0" y="90.666666666666657" width="94" height="26.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="94" height="26.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <accessibility key="accessibilityConfiguration" label="pineApple"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Rcr-xr-eqz">
-                                                <rect key="frame" x="0.0" y="124" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="130" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperAction:" destination="Yu1-lM-nqp" eventType="valueChanged" id="3gC-De-66Y"/>
+                                                    <action selector="pineAppleStepper:" destination="Yu1-lM-nqp" eventType="valueChanged" id="Va7-sX-rRS"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Cpl-bQ-0xc">
-                                        <rect key="frame" x="396" y="0.0" width="94" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cpl-bQ-0xc">
+                                        <rect key="frame" x="396" y="0.0" width="94" height="162"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EHe-D1-1xN">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="83.666666666666671"/>
@@ -378,22 +381,23 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZDv-1m-HBY">
-                                                <rect key="frame" x="0.0" y="90.666666666666657" width="94" height="26.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="94" height="26.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <accessibility key="accessibilityConfiguration" label="kiwi"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="klA-59-Nu4">
-                                                <rect key="frame" x="0.0" y="124" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="130" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperAction:" destination="Yu1-lM-nqp" eventType="valueChanged" id="ckc-Yu-ZdW"/>
+                                                    <action selector="kiwiStepper:" destination="Yu1-lM-nqp" eventType="valueChanged" id="Tn8-vB-yJL"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="KPV-YQ-kXW">
-                                        <rect key="frame" x="528" y="0.0" width="94" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KPV-YQ-kXW">
+                                        <rect key="frame" x="528" y="0.0" width="94" height="162"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥭" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="w1F-9o-qJR">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="83.666666666666671"/>
@@ -402,16 +406,17 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YJI-ER-LJR">
-                                                <rect key="frame" x="0.0" y="90.666666666666657" width="94" height="26.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.666666666666657" width="94" height="26.333333333333329"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                <accessibility key="accessibilityConfiguration" label="mango"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="xbn-6P-grO">
-                                                <rect key="frame" x="0.0" y="124" width="94" height="32"/>
+                                                <rect key="frame" x="0.0" y="130" width="94" height="32"/>
                                                 <connections>
-                                                    <action selector="stepperAction:" destination="Yu1-lM-nqp" eventType="valueChanged" id="aQL-p6-glD"/>
+                                                    <action selector="mangoStepper:" destination="Yu1-lM-nqp" eventType="valueChanged" id="0Ii-kt-QzQ"/>
                                                 </connections>
                                             </stepper>
                                         </subviews>
@@ -429,26 +434,26 @@
                     <navigationItem key="navigationItem" title="재고 추가" id="g4W-fY-l7r">
                         <barButtonItem key="rightBarButtonItem" title="닫기" id="ChQ-bG-o7I">
                             <connections>
-                                <action selector="touchUpDismissButton:" destination="Yu1-lM-nqp" id="RQX-I8-l06"/>
+                                <action selector="touchUpDismissButton:" destination="Yu1-lM-nqp" id="Gmz-CK-bL5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outletCollection property="fruitStoreCountBundle" destination="0yV-kn-zaT" collectionClass="NSMutableArray" id="aoF-FQ-qMr"/>
-                        <outletCollection property="stepperBundle" destination="ZQk-f4-zrz" collectionClass="NSMutableArray" id="QTX-Bf-EZ3"/>
-                        <outletCollection property="fruitEmojiBundle" destination="dCK-AJ-zGU" collectionClass="NSMutableArray" id="1VP-IW-geK"/>
-                        <outletCollection property="fruitEmojiBundle" destination="y33-ND-gz2" collectionClass="NSMutableArray" id="feG-eV-shi"/>
-                        <outletCollection property="fruitStoreCountBundle" destination="gKu-86-RhI" collectionClass="NSMutableArray" id="Mjj-9q-R5z"/>
-                        <outletCollection property="stepperBundle" destination="O5s-2N-3iP" collectionClass="NSMutableArray" id="uoQ-c2-xPL"/>
-                        <outletCollection property="fruitStoreCountBundle" destination="MpT-VW-hCb" collectionClass="NSMutableArray" id="NFj-fe-KqZ"/>
-                        <outletCollection property="fruitEmojiBundle" destination="rac-Ji-vZK" collectionClass="NSMutableArray" id="dla-A0-DDk"/>
-                        <outletCollection property="stepperBundle" destination="Rcr-xr-eqz" collectionClass="NSMutableArray" id="Cjx-SX-RJe"/>
-                        <outletCollection property="fruitEmojiBundle" destination="EHe-D1-1xN" collectionClass="NSMutableArray" id="yb1-Eb-DNO"/>
-                        <outletCollection property="stepperBundle" destination="klA-59-Nu4" collectionClass="NSMutableArray" id="YhB-1e-sv0"/>
-                        <outletCollection property="fruitStoreCountBundle" destination="ZDv-1m-HBY" collectionClass="NSMutableArray" id="IkU-QQ-ui0"/>
-                        <outletCollection property="fruitStoreCountBundle" destination="YJI-ER-LJR" collectionClass="NSMutableArray" id="5Si-Bi-Nip"/>
-                        <outletCollection property="fruitEmojiBundle" destination="w1F-9o-qJR" collectionClass="NSMutableArray" id="6DL-qZ-12n"/>
-                        <outletCollection property="stepperBundle" destination="xbn-6P-grO" collectionClass="NSMutableArray" id="unm-cz-Asg"/>
+                        <outlet property="bananaStepper" destination="O5s-2N-3iP" id="OWq-HS-boM"/>
+                        <outlet property="kiwiStepper" destination="klA-59-Nu4" id="Q4d-jm-anU"/>
+                        <outlet property="mangoStepper" destination="xbn-6P-grO" id="0Ch-Ii-FNf"/>
+                        <outlet property="pineAppleStepper" destination="Rcr-xr-eqz" id="mva-Qb-SfL"/>
+                        <outlet property="strawberryStepper" destination="ZQk-f4-zrz" id="OOZ-U4-a4L"/>
+                        <outletCollection property="fruitEmojiBundle" destination="dCK-AJ-zGU" collectionClass="NSMutableArray" id="hFw-xp-LMC"/>
+                        <outletCollection property="fruitEmojiBundle" destination="y33-ND-gz2" collectionClass="NSMutableArray" id="DDa-DR-8dC"/>
+                        <outletCollection property="fruitEmojiBundle" destination="rac-Ji-vZK" collectionClass="NSMutableArray" id="qW6-gn-7b2"/>
+                        <outletCollection property="fruitEmojiBundle" destination="EHe-D1-1xN" collectionClass="NSMutableArray" id="D5d-LS-Zo4"/>
+                        <outletCollection property="fruitEmojiBundle" destination="w1F-9o-qJR" collectionClass="NSMutableArray" id="dhX-4g-TnY"/>
+                        <outletCollection property="fruitStoreCountBundle" destination="0yV-kn-zaT" collectionClass="NSMutableArray" id="LtA-Tx-2qY"/>
+                        <outletCollection property="fruitStoreCountBundle" destination="gKu-86-RhI" collectionClass="NSMutableArray" id="qvC-oV-ydf"/>
+                        <outletCollection property="fruitStoreCountBundle" destination="MpT-VW-hCb" collectionClass="NSMutableArray" id="2kD-Zb-c0e"/>
+                        <outletCollection property="fruitStoreCountBundle" destination="ZDv-1m-HBY" collectionClass="NSMutableArray" id="py6-Iz-KXx"/>
+                        <outletCollection property="fruitStoreCountBundle" destination="YJI-ER-LJR" collectionClass="NSMutableArray" id="IMa-P3-BTa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ieh-6D-g1l" sceneMemberID="firstResponder"/>

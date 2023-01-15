@@ -6,7 +6,7 @@
 
 import UIKit
 
-class JuiceViewController: UIViewController {
+class JuiceViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var juiceEmojiBundle: [UILabel]!
     @IBOutlet var juiceStoreCountBundle: [UILabel]!
@@ -141,9 +141,16 @@ extension JuiceViewController {
     }
     
     private func presentModally() {
-        guard let fruitNavigationController = self.storyboard?.instantiateViewController(identifier: "FruitNavi") as? UINavigationController else { return }
+        guard let fruitNavigationController = storyboard?.instantiateViewController(identifier: "FruitNavi") as? UINavigationController else { return }
+        fruitNavigationController.delegate = self
         fruitNavigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(fruitNavigationController, animated: true, completion: nil)
+        present(fruitNavigationController, animated: true, completion: nil)
+    }
+}
+
+extension JuiceViewController: FruitViewControllerDelegate {
+    func didChangeStock() {
+        currentStockDisplay(on: juiceEmojiBundle, change: juiceStoreCountBundle)
     }
 }
 

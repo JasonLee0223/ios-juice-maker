@@ -7,16 +7,18 @@
 
 import UIKit
 
-class FruitViewController: UIViewController, SendDataDelegate {
-    func syncFruitStocks() {
-        Fruit.allCases.enumerated().forEach { fruit in
-            guard let label = fruitStoreCountBundle[safe: fruit.offset] else { return }
-            label.text = String(fruitStore.sendBackToAvailableStock(fruit: fruit.element))
-            
-        }
-    }
+protocol FruitViewControllerDelegate: AnyObject {
+    func didChangeStock()
+}
+
+class FruitViewController: UIViewController {
     
+    private let fruitStore = FruitStore.shared
+        
     @IBAction func touchUpDismissButton(_ sender: UIBarButtonItem) {
+        if isStockChanged {
+            delegate?.didChangeStock()
+        }
         dismiss(animated: true)
     }
     
@@ -27,6 +29,15 @@ class FruitViewController: UIViewController, SendDataDelegate {
     @IBOutlet weak var pineAppleStepper: UIStepper!
     @IBOutlet weak var kiwiStepper: UIStepper!
     @IBOutlet weak var mangoStepper: UIStepper!
+    
+    weak var delegate: FruitViewControllerDelegate?
+    private var isStockChanged: Bool = false
+    
+    private func initCountBundle(bundles: [UILabel]) {
+        for (bundle, fruit) in zip(bundles, Fruit.allCases) {
+            bundle.text = String(fruitStore.sendBackToAvailableStock(fruit: fruit))
+        }
+    }
     
     private func initSteppers() {
         strawberryStepper.value = Double(fruitStore.sendBackToAvailableStock(fruit: .strawberry))
@@ -41,6 +52,7 @@ class FruitViewController: UIViewController, SendDataDelegate {
             if label.accessibilityLabel == "strawberry" {
                 fruitStore.store.updateValue(Int(sender.value), forKey: .strawberry)
                 label.text = String(fruitStore.sendBackToAvailableStock(fruit: .strawberry))
+                isStockChanged = true
             }
         }
     }
@@ -50,6 +62,7 @@ class FruitViewController: UIViewController, SendDataDelegate {
             if label.accessibilityLabel == "banana" {
                 fruitStore.store.updateValue(Int(sender.value), forKey: .banana)
                 label.text = String(fruitStore.sendBackToAvailableStock(fruit: .banana))
+                isStockChanged = true
             }
         }
     }
@@ -59,6 +72,7 @@ class FruitViewController: UIViewController, SendDataDelegate {
             if label.accessibilityLabel == "pineApple" {
                 fruitStore.store.updateValue(Int(sender.value), forKey: .pineApple)
                 label.text = String(fruitStore.sendBackToAvailableStock(fruit: .pineApple))
+                isStockChanged = true
             }
         }
     }
@@ -68,6 +82,7 @@ class FruitViewController: UIViewController, SendDataDelegate {
             if label.accessibilityLabel == "kiwi" {
                 fruitStore.store.updateValue(Int(sender.value), forKey: .kiwi)
                 label.text = String(fruitStore.sendBackToAvailableStock(fruit: .kiwi))
+                isStockChanged = true
             }
         }
     }
@@ -77,16 +92,14 @@ class FruitViewController: UIViewController, SendDataDelegate {
             if label.accessibilityLabel == "mango" {
                 fruitStore.store.updateValue(Int(sender.value), forKey: .mango)
                 label.text = String(fruitStore.sendBackToAvailableStock(fruit: .mango))
+                isStockChanged = true
             }
         }
     }
     
-    private let fruitStore = FruitStore.shared
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncFruitStocks()
-        fruitStore.delegate = self
+        initCountBundle(bundles: fruitStoreCountBundle)
         initSteppers()
     }
 }

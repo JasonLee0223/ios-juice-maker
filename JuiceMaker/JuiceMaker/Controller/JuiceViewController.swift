@@ -141,16 +141,15 @@ extension JuiceViewController {
     }
     
     private func presentModally() {
-        guard let fruitNavigationController = storyboard?.instantiateViewController(identifier: "FruitNavi") as? UINavigationController else { return }
-        fruitNavigationController.delegate = self
-        fruitNavigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        present(fruitNavigationController, animated: true, completion: nil)
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "FruitNavi") as? UINavigationController else { return }
+        vc.delegate = self
+        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(vc, animated: true, completion: nil)
     }
 }
 
-extension JuiceViewController: FruitViewControllerDelegate {
-    func didChangeStock() {
-        currentStockDisplay(on: juiceEmojiBundle, change: juiceStoreCountBundle)
-    }
+extension JuiceViewController: ChangeStockDelegate {
+    func changeCurrentStock(vc: FruitViewController) {
+                self.currentStockDisplay(on: self.juiceEmojiBundle, change: self.juiceStoreCountBundle)
+            }
 }
-

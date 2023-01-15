@@ -7,17 +7,18 @@
 
 import UIKit
 
-protocol FruitViewControllerDelegate: AnyObject {
-    func didChangeStock()
+protocol ChangeStockDelegate: AnyObject {
+    func changeCurrentStock(vc: FruitViewController)
 }
+
 
 class FruitViewController: UIViewController {
     
     private let fruitStore = FruitStore.shared
-        
+    
     @IBAction func touchUpDismissButton(_ sender: UIBarButtonItem) {
         if isStockChanged {
-            delegate?.didChangeStock()
+            self.delegate?.changeCurrentStock(vc: self)
         }
         dismiss(animated: true)
     }
@@ -30,7 +31,7 @@ class FruitViewController: UIViewController {
     @IBOutlet weak var kiwiStepper: UIStepper!
     @IBOutlet weak var mangoStepper: UIStepper!
     
-    weak var delegate: FruitViewControllerDelegate?
+    weak var delegate: ChangeStockDelegate?
     private var isStockChanged: Bool = false
     
     private func initCountBundle(bundles: [UILabel]) {

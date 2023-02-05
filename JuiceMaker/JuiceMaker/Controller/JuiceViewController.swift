@@ -12,6 +12,10 @@ class JuiceViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var juiceStoreCountBundle: [UILabel]!
     @IBOutlet var mixJuiceOrderBundle: [UIButton]!
     @IBOutlet var singleJuiceOrderBundle: [UIButton]!
+
+    @IBAction func changeStock(_ sender: UIBarButtonItem) {
+        presentModally()
+    }
     
     @IBAction func mixJuiceOrder(_ sender: UIButton) {
         guard let juiceType = sender.currentTitle else {
@@ -141,15 +145,18 @@ extension JuiceViewController {
     }
     
     private func presentModally() {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "FruitNavi") as? UINavigationController else { return }
-        vc.delegate = self
-        vc.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        present(vc, animated: true, completion: nil)
+        guard let fruitViewNavi = self.storyboard?.instantiateViewController(withIdentifier: "FruitNavi") as? UINavigationController else { return }
+        fruitViewNavi.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+
+        guard let fruitVC = self.storyboard?.instantiateViewController(withIdentifier: "FruitView") as? FruitViewController else { return }
+        fruitViewNavi.pushViewController(fruitVC, animated: true)
+        fruitVC.delegate = self
+        present(fruitViewNavi, animated: true)
     }
 }
 
-extension JuiceViewController: ChangeStockDelegate {
-    func changeCurrentStock(vc: FruitViewController) {
-                self.currentStockDisplay(on: self.juiceEmojiBundle, change: self.juiceStoreCountBundle)
-            }
+extension JuiceViewController: UpdateDataDelegate {
+    func syncFruitStocks() {
+        currentStockDisplay(on: juiceEmojiBundle, change: juiceStoreCountBundle)
+    }
 }
